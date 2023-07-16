@@ -169,11 +169,19 @@ footer {
 .card {
   transition: transform 0.3s;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
   transform: scale(1.05);
 }
+
+
 
 
 .title{
@@ -209,6 +217,36 @@ footer {
 
 .section1{
   padding: 2rem 1rem 2rem 1rem;
+  
+}
+
+
+.card-body{
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card-title{
+  color: var(--color2);
+}
+
+.img-card {
+  width: 100px; /* Ajusta el tamaño deseado para la imagen */
+    height: 100px; /* Ajusta el tamaño deseado para la imagen */
+    border-radius: 50%; /* Establece un radio de borde de 50% para crear el círculo */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el círculo */
+    margin: auto; /* Ajusta el espacio entre la imagen y el contenido de la tarjeta */
+    background-color: var(--color1); /* Establece el color de fondo del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-card img{
+ 
+  width: 50%;
+  height: 50%;
 }
 
 @keyframes rotate {

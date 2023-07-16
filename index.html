@@ -42,20 +42,21 @@
 
     <script>
       function scrollHandler() {
-        var title = document.querySelector('.section-title');
-        var titlePosition = title.getBoundingClientRect().top;
-        var windowHeight = window.innerHeight;
+        var titles = document.querySelectorAll('.section-title');
 
-        if (titlePosition < windowHeight * 0.8) {
-          title.classList.add('show');
-        } else {
-          title.classList.remove('show');
-        }
+        titles.forEach(function (title) {
+          var titlePosition = title.getBoundingClientRect().top;
+          var windowHeight = window.innerHeight;
+
+          if (titlePosition < windowHeight * 0.8) {
+            title.classList.add('show');
+          } else {
+            title.classList.remove('show');
+          }
+        });
       }
 
       window.addEventListener('scroll', scrollHandler);
-
-
 
 
     </script>
@@ -80,7 +81,7 @@
               <a class="nav-link" href="#servicios">Servicios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Proyectos</a>
+              <a class="nav-link" href="#proyectos">Proyectos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Sobre mi</a>
@@ -140,9 +141,13 @@
             <div class="card">
 
               <div class="card-body">
-                <img src="img/servicio1.png" alt="Card Image">
-                <h5 class="card-title">Tarjeta 1</h5>
-                <p class="card-text">Descripción de la tarjeta 1.</p>
+                <div class="img-card">
+                  <img class="icon-card" src="img/servicio1b.png" alt="Card Image">
+                </div>
+
+                <h5 class="card-title p-2">Desarrollo Web</h5>
+                <p class="card-text">Páginas web amigables, y que se adaptan a todas las pantallas para
+                  brindar una mejor experiencia a cada uno de tus usuarios.</p>
               </div>
             </div>
           </div>
@@ -150,19 +155,68 @@
             <div class="card">
 
               <div class="card-body">
-                <img src="img/servicio1.png" alt="Card Image">
-                <h5 class="card-title">Tarjeta 2</h5>
-                <p class="card-text">Descripción de la tarjeta 2.</p>
+                <div class="img-card">
+                  <img class="icon-card " src="img/servicio2b.png" alt="Card Image">
+                </div>
+                <h5 class="card-title p-2">Desarrollo Móvil</h5>
+                <p class="card-text">Aplicaciones desarrolladas con Flutter para Android, adaptativas a cualquier
+                  pantalla y muy intuitivas para el usuario</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="card">
-
               <div class="card-body">
-                <img src="img/servicio1.png" alt="Card Image">
-                <h5 class="card-title">Tarjeta 3</h5>
-                <p class="card-text">Descripción de la tarjeta 2.</p>
+                <div class="img-card">
+                  <img class="icon-card" src="img/servicio3b.png" alt="Card Image">
+                </div>
+                <h5 class="card-title p-2">Inteligencia Artificial</h5>
+                <p class="card-text">Colaboración en proyectos que estén relacionados con inteligencia artificial,
+                  ciencia de datos y/o análisis de datos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section id="proyectos" class="section1">
+
+      <div class="section-title">
+        <h1 class="title">¿Cuál es mi experiencia?</h1>
+      </div>
+
+      <div class="container p-2">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="card">
+              <img class="card-img-top" src="img/buscocasa.png" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title p-2">Busco Casa</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card">
+              <img class="card-img-top" src="img/ciodesia.png" alt="Card Image">
+              <div class="card-body">
+
+                <h5 class="card-title p-2">Ciodesia</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card">
+              <img class="card-img-top" src="img/pago.png" alt="Card Image">
+              <div class="card-body">
+
+                <h5 class="card-title p-2">Pago en Linea</h5>
+                <p class="card-text"></p>
               </div>
             </div>
           </div>
