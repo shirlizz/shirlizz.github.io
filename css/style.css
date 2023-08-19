@@ -14,6 +14,7 @@ body, html {
 .nombre{
   font-size: 3rem;
   font-weight: bold;
+  
   padding-top: 2rem;
 }
 
@@ -59,7 +60,8 @@ span{
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(to bottom, #006ad7, #ffffff);
+  /* background-image: linear-gradient(to bottom, #006ad7, #ffffff); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg.jpg");
 
   /* Set a specific height */
   height: 100vh;
@@ -216,7 +218,9 @@ footer {
 }
 
 .section1{
-  padding: 2rem 1rem 2rem 1rem;
+  position: relative;
+
+  padding: 5rem 1rem 5rem 1rem;
   
 }
 
@@ -248,6 +252,84 @@ footer {
   width: 50%;
   height: 50%;
 }
+
+.cards-servicio{
+  margin-top: 5rem;
+}
+
+.frase-contenedor{
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frase-contenedor .frase{
+  font-style: italic;
+  text-align: center;
+  
+}
+
+
+/* Estilos del contenedor de iconos */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap; /* Añadido para que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.icon-container .icon {
+  flex-basis: calc(10% - 8px); /* Distribuye en 5 columnas, teniendo en cuenta el margen del borde */
+  box-sizing: border-box;
+}
+
+
+.icon-container .icon i{
+  color: var(--color1);
+}
+
+.icon-container .icon i:hover{
+  color: var(--color2);
+}
+
+.icon-container .icon .icon-title{
+  color: var(--color1);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Estilos de cada icono */
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 20px;
+}
+
+.icon i {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.icon-label {
+  font-size: 16px;
+  color: var(--color2);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .icon-container .icon {
+    flex-basis: calc(50% - 8px); /* Distribuye en 2 columnas en pantallas pequeñas */
+  }
+}
+
 
 @keyframes rotate {
   0% {
