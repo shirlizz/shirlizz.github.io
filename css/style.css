@@ -179,7 +179,9 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover {
+
+
+.card:hover, .card2:hover {
   transform: scale(1.05);
 }
 
@@ -228,12 +230,15 @@ footer {
 .card-body{
   align-items: center;
   justify-content: center;
+
   
 }
 
 .card-title{
   color: var(--color2);
 }
+
+
 
 .img-card {
   width: 100px; /* Ajusta el tamaño deseado para la imagen */
@@ -253,12 +258,28 @@ footer {
   height: 50%;
 }
 
-.cards-servicio{
-  margin-top: 5rem;
+
+.card2{
+  transition: transform 0.3s;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 350px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.frase-contenedor{
+.cards-servicio{
   margin-top: 5rem;
+
+  
+}
+
+
+
+.frase-contenedor{
+  margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -321,6 +342,98 @@ footer {
 .icon-label {
   font-size: 16px;
   color: var(--color2);
+}
+
+.badges {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start; /* Alinea los badges desde la izquierda */
+  gap: 4px; /* Espacio entre los badges */
+  position: relative;
+  bottom: 0;
+  left: 0; /* Ajusta la posición desde la izquierda */
+  transform: none; /* Elimina la transformación de la posición */
+}
+
+.badge {
+  background-color: var(--color1);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--color2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.progress.loading {
+  transition: width 1s ease-in-out;
+}
+
+.habilidades-container{
+  margin-top: 5rem;
+}
+
+.text-with-image {
+  display: flex;
+  flex-direction: row; /* Alineación por defecto en pantallas grandes */
+  align-items: flex-start; /* Alinea la imagen en la parte superior */
+  gap: 10px;
+  text-align:justify; /* Centrar el texto */
+}
+
+.long-text2{
+  text-align: justify;
+}
+
+.text-with-image img {
+  max-width: 10rem; /* Ajusta el tamaño de la imagen */
+}
+
+@media (max-width: 767px) {
+  .badge {
+    font-size: 10px;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .text-with-image, .long-text2 {
+    flex-direction: column; /* Cambia a dirección de columna en pantallas pequeñas */
+    align-items: center; /* Centra la imagen en el eje horizontal */
+    text-align: justify; /* Centra el texto */
+  }
+
 }
 
 /* Media query para pantallas pequeñas */
