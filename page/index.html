@@ -11,6 +11,8 @@
             --spidey-blue: #0A1C3C;
             --spidey-white: #FFFFFF;
             --spidey-grey: #333333;
+            --spidey-yellow: #FFD700; /* Oro para detalles de cómic */
+            --spidey-dark-blue: #071224;
         }
 
         body {
@@ -27,14 +29,44 @@
             padding: 20px;
         }
 
+        /* Comic Book Styling */
+        body {
+            background-color: #f0f0f0; /* Fondo más claro para simular página de cómic */
+            border: 2px solid var(--spidey-grey); /* Borde alrededor de la "página" */
+            box-shadow: 10px 10px 0px var(--spidey-grey); /* Sombra para efecto 3D */
+            margin: 20px; /* Margen para que se vea el borde */
+        }
+
+        section {
+            border-bottom: 2px solid var(--spidey-grey);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        h1, h2, h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--spidey-blue) 0%, #000000 100%);
+            background: linear-gradient(135deg, var(--spidey-dark-blue) 0%, #000000 100%);
             color: var(--spidey-white);
             text-align: center;
             padding: 80px 20px;
             position: relative;
             overflow: hidden;
+            border-bottom: 5px solid var(--spidey-red); /* Borde más grueso */
         }
 
         .hero::before {
@@ -44,8 +76,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* IMAGEN DE FONDO DEL HERO - SPIDERMAN */
-            background: url('https://images.unsplash.com/photo-1614027763784-90ac5b4d7547?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            /* Fondo de telaraña abstracto o textura de cómic */
+            background: url('https://w0.peakpx.com/wallpaper/34/170/HD-wallpaper-spiderman-web-background.jpg') no-repeat center center/cover;
             opacity: 0.15;
             z-index: 1;
         }
@@ -54,43 +86,69 @@
             position: relative;
             z-index: 2;
             animation: fadeIn 2s ease-out;
+            padding: 20px; /* Espacio para el borde punteado */
+            border: 2px dashed var(--spidey-yellow); /* Borde de cómic */
+            background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para el texto */
         }
 
         .hero h1 {
             font-family: 'Bangers', cursive;
-            font-size: 3.5em;
-            margin-bottom: 10px;
+            font-size: 4.5em; /* Más grande */
+            margin-bottom: 15px;
             color: var(--spidey-red);
-            text-shadow: 4px 4px var(--spidey-blue);
+            text-shadow: 6px 6px var(--spidey-blue), 8px 8px var(--spidey-yellow); /* Sombra doble */
             animation: bounceIn 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            max-width: 700px;
+            font-size: 1.6em; /* Más grande */
+            margin-bottom: 40px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             animation: slideInUp 1.5s ease-out;
+            text-shadow: 1px 1px rgba(0,0,0,0.5);
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--spidey-red);
             color: var(--spidey-white);
-            padding: 15px 30px;
+            padding: 18px 35px; /* Más grande */
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px; /* Bordes menos redondos para cómic */
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.4em; /* Más grande */
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 5px 5px 0 var(--spidey-yellow); /* Sombra cómic */
             animation: pulse 2s infinite;
+            border: 2px solid var(--spidey-dark-blue);
+            font-family: 'Bangers', cursive; /* Estilo de cómic */
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
-            background-color: #BF2626; /* Valor aproximado de darken */
+            background-color: #BF2626;
             transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 8px 8px 0 var(--spidey-yellow);
+        }
+
+        /* Spiderman colgando */
+        .spiderman-slinger {
+            position: absolute;
+            top: 0;
+            left: 50%; /* Inicialmente centrado */
+            transform: translateX(-50%);
+            width: 150px; /* Ajusta el tamaño */
+            height: auto;
+            z-index: 10;
+            animation: swing 4s ease-in-out infinite alternate;
+            transform-origin: top center; /* Punto de pivote para el balanceo */
+        }
+
+        .spiderman-slinger img {
+            width: 100%;
+            display: block;
         }
 
         /* Web Slinger Section */
@@ -104,12 +162,12 @@
 
         .web-slinger-section h2 {
             font-family: 'Bangers', cursive;
-            font-size: 2.5em;
+            font-size: 3em;
             color: var(--spidey-blue);
             margin-bottom: 40px;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px var(--spidey-red);
+            text-shadow: 3px 3px var(--spidey-red);
         }
 
         .web-slinger-grid {
@@ -123,37 +181,47 @@
             background-color: var(--spidey-blue);
             color: var(--spidey-white);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 10px; /* Bordes menos redondos */
             width: 300px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 5px 5px 0 var(--spidey-red); /* Sombra cómic */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--spidey-dark-blue);
+            text-align: left; /* Alineación del texto */
         }
 
         .web-slinger-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 8px 8px 0 var(--spidey-red);
         }
 
         .web-slinger-card i {
-            font-size: 3em;
+            font-size: 3.5em; /* Iconos más grandes */
             color: var(--spidey-red);
             margin-bottom: 15px;
             display: block;
             animation: rotateIn 1s ease-out;
+            text-align: center; /* Centrar icono */
+            border-bottom: 2px solid var(--spidey-yellow);
+            padding-bottom: 10px;
+            margin-left: -30px; /* Ajustar posición del borde */
+            margin-right: -30px;
         }
 
         .web-slinger-card h3 {
             font-family: 'Bangers', cursive;
-            font-size: 1.8em;
+            font-size: 2em; /* Títulos más grandes */
             margin-bottom: 10px;
-            color: var(--spidey-red);
+            color: var(--spidey-yellow); /* Color diferente para destacar */
+            text-shadow: 2px 2px var(--spidey-red);
+        }
+        .web-slinger-card p {
+            color: var(--spidey-white);
         }
 
         /* Gallery/Parallax Section */
         .parallax-section {
-            /* IMAGEN DE FONDO DEL PARALLAX - CIUDAD DE NOCHE / SPIDERMAN */
             background: url('https://images.unsplash.com/photo-1543329188-469b8214a1a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center fixed;
             background-size: cover;
             padding: 100px 20px;
@@ -161,6 +229,7 @@
             text-align: center;
             position: relative;
             z-index: 0;
+            border-bottom: 5px solid var(--spidey-red);
         }
 
         .parallax-section::before {
@@ -170,16 +239,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Oscurece la imagen para que el texto resalte */
+            background-color: rgba(0, 0, 0, 0.7); /* Oscurece más la imagen */
             z-index: -1;
         }
 
         .parallax-section h2 {
             font-family: 'Bangers', cursive;
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 20px;
             color: var(--spidey-red);
-            text-shadow: 3px 3px var(--spidey-blue);
+            text-shadow: 4px 4px var(--spidey-blue), 6px 6px var(--spidey-yellow);
+        }
+        .parallax-section p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px rgba(0,0,0,0.5);
         }
 
         .gallery-grid {
@@ -190,15 +263,17 @@
         }
 
         .gallery-item {
-            background-color: rgba(10, 28, 60, 0.8); /* Azul semi-transparente */
+            background-color: rgba(10, 28, 60, 0.9); /* Azul más oscuro semi-transparente */
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 4px 4px 0 var(--spidey-yellow); /* Sombra cómic */
             transition: transform 0.3s ease;
+            border: 2px solid var(--spidey-red);
         }
 
         .gallery-item:hover {
-            transform: scale(1.03);
+            transform: scale(1.05) rotate(2deg); /* Ligeramente más dinámico */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 6px 6px 0 var(--spidey-yellow);
         }
 
         .gallery-item img {
@@ -206,17 +281,22 @@
             height: auto;
             border-radius: 8px;
             margin-bottom: 10px;
-            filter: grayscale(20%);
-            transition: filter 0.3s ease;
+            filter: saturate(120%) brightness(90%); /* Colores más vivos */
+            transition: filter 0.3s ease, transform 0.3s ease;
+            border: 2px solid var(--spidey-white);
         }
 
         .gallery-item img:hover {
-            filter: grayscale(0%);
+            filter: saturate(150%) brightness(100%);
+            transform: scale(1.02);
         }
 
         .gallery-item p {
-            font-size: 1.1em;
+            font-size: 1.2em; /* Más grande */
             font-weight: bold;
+            color: var(--spidey-white);
+            font-family: 'Bangers', cursive;
+            text-shadow: 1px 1px var(--spidey-red);
         }
 
         /* Call to Action Final */
@@ -227,6 +307,7 @@
             padding: 60px 20px;
             position: relative;
             overflow: hidden;
+            border-bottom: 5px solid var(--spidey-blue);
         }
 
         .final-cta::before {
@@ -236,37 +317,42 @@
             left: -20px;
             right: -20px;
             bottom: -20px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); /* Más visible */
             animation: pulseBg 3s infinite alternate;
         }
 
         .final-cta-content {
             position: relative;
             z-index: 1;
+            padding: 20px;
+            border: 2px dashed var(--spidey-yellow);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .final-cta h2 {
             font-family: 'Bangers', cursive;
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 20px;
-            text-shadow: 3px 3px var(--spidey-blue);
+            text-shadow: 4px 4px var(--spidey-blue), 6px 6px var(--spidey-yellow);
         }
 
         .final-cta p {
-            font-size: 1.3em;
+            font-size: 1.4em;
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px rgba(0,0,0,0.5);
         }
 
         /* Footer */
         footer {
-            background-color: var(--spidey-grey);
+            background-color: var(--spidey-dark-blue); /* Footer más oscuro */
             color: var(--spidey-white);
             text-align: center;
             padding: 30px 20px;
             font-size: 0.9em;
+            border-top: 5px solid var(--spidey-red);
         }
 
         /* Animations */
@@ -288,9 +374,9 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 5px 5px 0 var(--spidey-yellow); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 8px 8px 0 var(--spidey-yellow); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 5px 5px 0 var(--spidey-yellow); }
         }
 
         @keyframes rotateIn {
@@ -299,75 +385,61 @@
         }
 
         @keyframes pulseBg {
-            0% { transform: scale(1); opacity: 0.1; }
-            50% { transform: scale(1.1); opacity: 0.2; }
-            100% { transform: scale(1); opacity: 0.1; }
+            0% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.1); opacity: 0.25; }
+            100% { transform: scale(1); opacity: 0.15; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .hero p {
-                font-size: 1.2em;
-            }
-
-            .web-slinger-section h2, .parallax-section h2, .final-cta h2 {
-                font-size: 2em;
-            }
-
-            .web-slinger-card {
-                width: 90%;
-            }
-
-            .parallax-section {
-                padding: 60px 20px;
-            }
+        /* Spiderman Swing Animation */
+        @keyframes swing {
+            0% { transform: translateX(-50%) rotate(-5deg); }
+            50% { transform: translateX(-50%) rotate(5deg); }
+            100% { transform: translateX(-50%) rotate(-5deg); }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .hero p {
-                font-size: 1em;
-            }
-
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-
-            .web-slinger-section h2, .parallax-section h2, .final-cta h2 {
-                font-size: 1.8em;
-            }
-
-            .final-cta p {
-                font-size: 1.1em;
-            }
-        }
 
         /* JavaScript enhanced animations */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transición más lenta */
         }
 
         .reveal-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { margin: 10px; }
+            .hero h1 { font-size: 3em; }
+            .hero p { font-size: 1.3em; }
+            .web-slinger-section h2, .parallax-section h2, .final-cta h2 { font-size: 2.5em; }
+            .web-slinger-card { width: 90%; }
+            .parallax-section { padding: 60px 20px; }
+            .spiderman-slinger { width: 100px; /* Spiderman más pequeño en móvil */ }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+            .cta-button { padding: 12px 25px; font-size: 1.1em; }
+            .web-slinger-section h2, .parallax-section h2, .final-cta h2 { font-size: 2em; }
+            .final-cta p { font-size: 1.2em; }
+            .spiderman-slinger { top: 10px; /* Más cerca del top en móvil */ width: 80px; }
+        }
     </style>
-    <!-- Font Awesome para iconos, si deseas usarlos. Si no, puedes eliminarlo. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header class="hero">
+        <!-- Spiderman Colgando -->
+        <div class="spiderman-slinger">
+            <img src="https://i.imgur.com/e28o81G.png" alt="Spiderman Colgando"> <!-- Imagen de Spiderman PNG -->
+        </div>
+
         <div class="hero-content">
             <h1>¡Feliz Día del Novio, Mi Increíble Spidey!</h1>
             <p>En este día tan especial, quiero celebrar al héroe que eres para mí. Gracias por ser mi protector, mi compañero de aventuras y el amor de mi vida.</p>
@@ -432,7 +504,7 @@
         <div class="final-cta-content">
             <h2 class="reveal-on-scroll">¡Mi Spidey, te deseo un día tan increíble como tú!</h2>
             <p class="reveal-on-scroll">Gracias por llenar mi vida de emoción, amor y telarañas de felicidad. ¡Eres el mejor novio del universo!</p>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button">Un pequeño regalo para ti</a> <!-- ¡Cuidado con el link, es un Rickroll de ejemplo! -->
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button">Un pequeño regalo para ti</a>
         </div>
     </section>
 
@@ -444,7 +516,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Function to check if an element is in viewport
             function isInViewport(element) {
                 const rect = element.getBoundingClientRect();
                 return (
@@ -456,7 +527,6 @@
                 );
             }
 
-            // Function to add 'is-visible' class to elements when they enter viewport
             function revealElements() {
                 const revealElements = document.querySelectorAll('.reveal-on-scroll');
                 revealElements.forEach(element => {
@@ -469,10 +539,7 @@
                 });
             }
 
-            // Initial check on load
             revealElements();
-
-            // Check on scroll
             window.addEventListener('scroll', revealElements);
         });
     </script>
