@@ -44,7 +44,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://i.imgur.com/your-spiderman-background-image.png') no-repeat center center/cover; /* Reemplaza con una imagen de fondo de Spiderman */
+            /* IMAGEN DE FONDO DEL HERO - SPIDERMAN */
+            background: url('https://images.unsplash.com/photo-1614027763784-90ac5b4d7547?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
             opacity: 0.15;
             z-index: 1;
         }
@@ -88,7 +89,6 @@
         }
 
         .cta-button:hover {
-            background-color: darken(var(--spidey-red), 10%); /* No se soporta darken en CSS puro, es un ejemplo */
             background-color: #BF2626; /* Valor aproximado de darken */
             transform: translateY(-5px) scale(1.05);
         }
@@ -153,7 +153,8 @@
 
         /* Gallery/Parallax Section */
         .parallax-section {
-            background: url('https://i.imgur.com/your-spiderman-city-background.png') no-repeat center fixed; /* Reemplaza con imagen de ciudad/Spiderman */
+            /* IMAGEN DE FONDO DEL PARALLAX - CIUDAD DE NOCHE / SPIDERMAN */
+            background: url('https://images.unsplash.com/photo-1543329188-469b8214a1a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center fixed;
             background-size: cover;
             padding: 100px 20px;
             color: var(--spidey-white);
@@ -408,19 +409,19 @@
             <p class="reveal-on-scroll">Recordando algunos de nuestros momentos especiales, tan emocionantes como balancearse por la ciudad.</p>
             <div class="gallery-grid">
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://i.imgur.com/your-photo-1.png" alt="Nuestra primera cita">
+                    <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nuestra primera cita">
                     <p>Nuestra primera "misión" juntos.</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://i.imgur.com/your-photo-2.png" alt="Viaje especial">
+                    <img src="https://images.unsplash.com/photo-1549480600-b663b610c1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Viaje especial">
                     <p>Esa aventura que nunca olvidaremos.</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://i.imgur.com/your-photo-3.png" alt="Momento divertido">
+                    <img src="https://images.unsplash.com/photo-1608975877402-23c2a6328328?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Momento divertido">
                     <p>Risas y locuras, siempre contigo.</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://i.imgur.com/your-photo-4.png" alt="Momento romántico">
+                    <img src="https://images.unsplash.com/photo-1529686055106-2ce96a23f495?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Momento romántico">
                     <p>Y un momento de puro amor.</p>
                 </div>
             </div>
@@ -450,7 +451,8 @@
                     rect.top >= 0 &&
                     rect.left >= 0 &&
                     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+                    rect.right >= 0
                 );
             }
 
@@ -460,6 +462,9 @@
                 revealElements.forEach(element => {
                     if (isInViewport(element)) {
                         element.classList.add('is-visible');
+                    } else {
+                        // Opcional: para que la animación se resetee al salir del viewport
+                        // element.classList.remove('is-visible');
                     }
                 });
             }
