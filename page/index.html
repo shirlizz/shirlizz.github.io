@@ -77,7 +77,7 @@
             width: 100%;
             height: 100%;
             /* Fondo de cómic con Spiderman y telarañas */
-            background: url('/img/fondo5.jpg') no-repeat center center/cover;
+            background: url('img/fondo5.jpg') no-repeat center center/cover;
             opacity: 0.6; /* Un poco más visible */
             z-index: 1;
         }
@@ -159,7 +159,7 @@
         /* Telarañas decorativas */
         .web-decoration {
             position: absolute;
-            background: url('/img/telarana.png') no-repeat; /* Imagen de telaraña transparente */
+            background: url('img/telarana.png') no-repeat; /* Imagen de telaraña transparente */
             background-size: contain;
             width: 150px; /* Ajusta tamaño */
             height: 150px; /* Ajusta tamaño */
@@ -243,7 +243,7 @@
 
         /* Gallery/Parallax Section */
         .parallax-section {
-            background: url('/img/fondo1.jpg') no-repeat center fixed; /* Otra imagen de cómic o ciudad */
+            background: url('img/fondo1.jpg') no-repeat center fixed; /* Otra imagen de cómic o ciudad */
             background-size: cover;
             padding: 100px 20px;
             color: var(--spidey-white);
@@ -283,6 +283,14 @@
             margin-top: 40px;
         }
 
+        .gallery-item img {
+  width: 100%;
+  height: 250px; /* ajusta según prefieras (ej. 200px o 300px) */
+  object-fit: cover; /* recorta sin deformar */
+  border-radius: 12px; /* opcional, esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* opcional, efecto dinámico */
+}
+
         .gallery-item {
             background-color: rgba(10, 28, 60, 0.9);
             padding: 15px;
@@ -297,15 +305,7 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 6px 6px 0 var(--spidey-yellow);
         }
 
-        .gallery-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            filter: saturate(120%) brightness(90%);
-            transition: filter 0.3s ease, transform 0.3s ease;
-            border: 2px solid var(--spidey-white);
-        }
+        
 
         .gallery-item img:hover {
             filter: saturate(150%) brightness(100%);
@@ -472,7 +472,7 @@
     <header class="hero">
         <!-- Spiderman Colgando -->
         <div id="spideySlinger" class="spiderman-slinger">
-            <img src="/img/spidey.png" alt="Spiderman Colgando">
+            <img src="img/spidey.png" alt="Spiderman Colgando">
         </div>
 
         <!-- Telarañas Decorativas en el Hero -->
@@ -536,20 +536,20 @@
             <p class="reveal-on-scroll">Como Spider-Man en sus mejores aventuras, ¡así somos nosotros!</p>
             <div class="gallery-grid">
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nuestra primera cita">
-                    <p>Nuestra primera "misión" juntos.</p>
+                    <img src="img/img3.jpeg" alt="Nuestra primera cita">
+                    <p>Mi momento favorito: siempre contigo</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1549480600-b663b610c1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Viaje especial">
-                    <p>Esa aventura que nunca olvidaremos.</p>
+                    <img src="img/img1.jpeg" alt="Viaje especial">
+                    <p>Entre todas las películas, yo siempre elijo la de nosotros.</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1608975877402-23c2a6328328?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Momento divertido">
-                    <p>Risas y locuras, siempre contigo.</p>
+                    <img src="img/img2.jpeg" alt="Momento divertido">
+                    <p>Nuestro amor es más fuerte que cualquier telaraña.</p>
                 </div>
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1529686055106-2ce96a23f495?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Momento romántico">
-                    <p>Y un momento de puro amor.</p>
+                    <img src="img/img4.jpeg" alt="Momento romántico">
+                    <p>En cualquier universo, siempre te elegiría a ti.</p>
                 </div>
             </div>
         </div>
