@@ -19,7 +19,10 @@
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             color: var(--spidey-grey);
-            background-color: var(--spidey-white);
+            background-color: #f0f0f0; /* Fondo más claro para simular página de cómic */
+            border: 2px solid var(--spidey-grey); /* Borde alrededor de la "página" */
+            box-shadow: 10px 10px 0px var(--spidey-grey); /* Sombra para efecto 3D */
+            margin: 20px; /* Margen para que se vea el borde */
             overflow-x: hidden; /* Evita desbordamiento horizontal en animaciones */
         }
 
@@ -30,17 +33,12 @@
         }
 
         /* Comic Book Styling */
-        body {
-            background-color: #f0f0f0; /* Fondo más claro para simular página de cómic */
-            border: 2px solid var(--spidey-grey); /* Borde alrededor de la "página" */
-            box-shadow: 10px 10px 0px var(--spidey-grey); /* Sombra para efecto 3D */
-            margin: 20px; /* Margen para que se vea el borde */
-        }
-
         section {
             border-bottom: 2px solid var(--spidey-grey);
             padding-bottom: 40px;
             margin-bottom: 40px;
+            position: relative; /* Para elementos de telaraña */
+            overflow: hidden;
         }
 
         section:last-of-type {
@@ -76,9 +74,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Fondo de telaraña abstracto o textura de cómic */
-            background: url('https://w0.peakpx.com/wallpaper/34/170/HD-wallpaper-spiderman-web-background.jpg') no-repeat center center/cover;
-            opacity: 0.15;
+            /* Fondo de cómic con Spiderman y telarañas */
+            background: url('https://w0.peakpx.com/wallpaper/407/283/HD-wallpaper-spiderman-comic.jpg') no-repeat center center/cover;
+            opacity: 0.18; /* Un poco más visible */
             z-index: 1;
         }
 
@@ -86,22 +84,22 @@
             position: relative;
             z-index: 2;
             animation: fadeIn 2s ease-out;
-            padding: 20px; /* Espacio para el borde punteado */
-            border: 2px dashed var(--spidey-yellow); /* Borde de cómic */
-            background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para el texto */
+            padding: 20px;
+            border: 2px dashed var(--spidey-yellow);
+            background-color: rgba(0, 0, 0, 0.45); /* Un poco más opaco */
         }
 
         .hero h1 {
             font-family: 'Bangers', cursive;
-            font-size: 4.5em; /* Más grande */
+            font-size: 4.5em;
             margin-bottom: 15px;
             color: var(--spidey-red);
-            text-shadow: 6px 6px var(--spidey-blue), 8px 8px var(--spidey-yellow); /* Sombra doble */
+            text-shadow: 6px 6px var(--spidey-blue), 8px 8px var(--spidey-yellow);
             animation: bounceIn 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.6em; /* Más grande */
+            font-size: 1.6em;
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
@@ -114,16 +112,16 @@
             display: inline-block;
             background-color: var(--spidey-red);
             color: var(--spidey-white);
-            padding: 18px 35px; /* Más grande */
+            padding: 18px 35px;
             text-decoration: none;
-            border-radius: 5px; /* Bordes menos redondos para cómic */
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.4em; /* Más grande */
+            font-size: 1.4em;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 5px 5px 0 var(--spidey-yellow); /* Sombra cómic */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 5px 5px 0 var(--spidey-yellow);
             animation: pulse 2s infinite;
             border: 2px solid var(--spidey-dark-blue);
-            font-family: 'Bangers', cursive; /* Estilo de cómic */
+            font-family: 'Bangers', cursive;
             letter-spacing: 1px;
         }
 
@@ -136,20 +134,41 @@
         /* Spiderman colgando */
         .spiderman-slinger {
             position: absolute;
-            top: 0;
-            left: 50%; /* Inicialmente centrado */
-            transform: translateX(-50%);
-            width: 150px; /* Ajusta el tamaño */
+            top: -200px; /* Inicia fuera de la pantalla, se animará para bajar */
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg); /* Inicia un poco girado */
+            width: 150px;
             height: auto;
-            z-index: 10;
+            z-index: 100; /* Asegurar que esté por encima de todo */
+            transition: top 1.5s ease-out; /* Transición para la bajada inicial */
+            /* La animación de balanceo se añade con JS después de bajar */
+        }
+
+        .spiderman-slinger.swing-active {
             animation: swing 4s ease-in-out infinite alternate;
-            transform-origin: top center; /* Punto de pivote para el balanceo */
+            transform-origin: top center;
         }
 
         .spiderman-slinger img {
             width: 100%;
             display: block;
         }
+
+        /* Telarañas decorativas */
+        .web-decoration {
+            position: absolute;
+            background: url('https://i.imgur.com/Qj4R5q2.png') no-repeat; /* Imagen de telaraña transparente */
+            background-size: contain;
+            width: 150px; /* Ajusta tamaño */
+            height: 150px; /* Ajusta tamaño */
+            z-index: 5;
+            opacity: 0.2;
+        }
+        .web-top-left { top: 10px; left: 10px; transform: rotate(20deg); }
+        .web-top-right { top: 10px; right: 10px; transform: rotate(-20deg); }
+        .web-bottom-left { bottom: 10px; left: 10px; transform: rotate(-20deg); }
+        .web-bottom-right { bottom: 10px; right: 10px; transform: rotate(20deg); }
+
 
         /* Web Slinger Section */
         .web-slinger-section {
@@ -181,14 +200,14 @@
             background-color: var(--spidey-blue);
             color: var(--spidey-white);
             padding: 30px;
-            border-radius: 10px; /* Bordes menos redondos */
+            border-radius: 10px;
             width: 300px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 5px 5px 0 var(--spidey-red); /* Sombra cómic */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 5px 5px 0 var(--spidey-red);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             border: 2px solid var(--spidey-dark-blue);
-            text-align: left; /* Alineación del texto */
+            text-align: left;
         }
 
         .web-slinger-card:hover {
@@ -197,23 +216,23 @@
         }
 
         .web-slinger-card i {
-            font-size: 3.5em; /* Iconos más grandes */
+            font-size: 3.5em;
             color: var(--spidey-red);
             margin-bottom: 15px;
             display: block;
             animation: rotateIn 1s ease-out;
-            text-align: center; /* Centrar icono */
+            text-align: center;
             border-bottom: 2px solid var(--spidey-yellow);
             padding-bottom: 10px;
-            margin-left: -30px; /* Ajustar posición del borde */
+            margin-left: -30px;
             margin-right: -30px;
         }
 
         .web-slinger-card h3 {
             font-family: 'Bangers', cursive;
-            font-size: 2em; /* Títulos más grandes */
+            font-size: 2em;
             margin-bottom: 10px;
-            color: var(--spidey-yellow); /* Color diferente para destacar */
+            color: var(--spidey-yellow);
             text-shadow: 2px 2px var(--spidey-red);
         }
         .web-slinger-card p {
@@ -222,7 +241,7 @@
 
         /* Gallery/Parallax Section */
         .parallax-section {
-            background: url('https://images.unsplash.com/photo-1543329188-469b8214a1a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center fixed;
+            background: url('https://w0.peakpx.com/wallpaper/407/283/HD-wallpaper-spiderman-comic.jpg') no-repeat center fixed; /* Otra imagen de cómic o ciudad */
             background-size: cover;
             padding: 100px 20px;
             color: var(--spidey-white);
@@ -239,7 +258,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Oscurece más la imagen */
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: -1;
         }
 
@@ -263,16 +282,16 @@
         }
 
         .gallery-item {
-            background-color: rgba(10, 28, 60, 0.9); /* Azul más oscuro semi-transparente */
+            background-color: rgba(10, 28, 60, 0.9);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 4px 4px 0 var(--spidey-yellow); /* Sombra cómic */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 4px 4px 0 var(--spidey-yellow);
             transition: transform 0.3s ease;
             border: 2px solid var(--spidey-red);
         }
 
         .gallery-item:hover {
-            transform: scale(1.05) rotate(2deg); /* Ligeramente más dinámico */
+            transform: scale(1.05) rotate(2deg);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 6px 6px 0 var(--spidey-yellow);
         }
 
@@ -281,7 +300,7 @@
             height: auto;
             border-radius: 8px;
             margin-bottom: 10px;
-            filter: saturate(120%) brightness(90%); /* Colores más vivos */
+            filter: saturate(120%) brightness(90%);
             transition: filter 0.3s ease, transform 0.3s ease;
             border: 2px solid var(--spidey-white);
         }
@@ -292,7 +311,7 @@
         }
 
         .gallery-item p {
-            font-size: 1.2em; /* Más grande */
+            font-size: 1.2em;
             font-weight: bold;
             color: var(--spidey-white);
             font-family: 'Bangers', cursive;
@@ -317,7 +336,7 @@
             left: -20px;
             right: -20px;
             bottom: -20px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); /* Más visible */
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
             animation: pulseBg 3s infinite alternate;
         }
 
@@ -347,7 +366,7 @@
 
         /* Footer */
         footer {
-            background-color: var(--spidey-dark-blue); /* Footer más oscuro */
+            background-color: var(--spidey-dark-blue);
             color: var(--spidey-white);
             text-align: center;
             padding: 30px 20px;
@@ -397,12 +416,11 @@
             100% { transform: translateX(-50%) rotate(-5deg); }
         }
 
-
         /* JavaScript enhanced animations */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transición más lenta */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .reveal-on-scroll.is-visible {
@@ -418,7 +436,8 @@
             .web-slinger-section h2, .parallax-section h2, .final-cta h2 { font-size: 2.5em; }
             .web-slinger-card { width: 90%; }
             .parallax-section { padding: 60px 20px; }
-            .spiderman-slinger { width: 100px; /* Spiderman más pequeño en móvil */ }
+            .spiderman-slinger { width: 100px; }
+            .web-decoration { width: 100px; height: 100px; opacity: 0.1; } /* Menos prominente en móvil */
         }
 
         @media (max-width: 480px) {
@@ -427,7 +446,8 @@
             .cta-button { padding: 12px 25px; font-size: 1.1em; }
             .web-slinger-section h2, .parallax-section h2, .final-cta h2 { font-size: 2em; }
             .final-cta p { font-size: 1.2em; }
-            .spiderman-slinger { top: 10px; /* Más cerca del top en móvil */ width: 80px; }
+            .spiderman-slinger { top: -150px; /* Ajusta la posición inicial para que baje en móvil */ width: 80px; }
+            .web-decoration { display: none; } /* Ocultar en pantallas muy pequeñas si distrae */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -436,10 +456,14 @@
 
     <header class="hero">
         <!-- Spiderman Colgando -->
-        <div class="spiderman-slinger">
-            <img src="https://w7.pngwing.com/pngs/942/530/png-transparent-spider-man-resting-upside-down-illustration-spider-man-captain-america-cup-comics-superhero-spider-man-avengers-heroes-fictional-character-thumbnail.png" alt="Spiderman Colgando"> <!-- Imagen de Spiderman PNG -->
+        <div id="spideySlinger" class="spiderman-slinger">
+            <img src="https://i.imgur.com/e28o81G.png" alt="Spiderman Colgando">
         </div>
 
+        <!-- Telarañas Decorativas en el Hero -->
+        <div class="web-decoration web-top-left"></div>
+        <div class="web-decoration web-top-right"></div>
+        
         <div class="hero-content">
             <h1>¡Feliz Día del Novio, Mi Increíble Spidey!</h1>
             <p>En este día tan especial, quiero celebrar al héroe que eres para mí. Gracias por ser mi protector, mi compañero de aventuras y el amor de mi vida.</p>
@@ -473,6 +497,9 @@
                 </div>
             </div>
         </div>
+        <!-- Telarañas decorativas en esta sección -->
+        <div class="web-decoration web-bottom-left"></div>
+        <div class="web-decoration web-top-right" style="opacity: 0.1; top: 50%; right: -20px; transform: rotate(90deg) scale(0.8);"></div>
     </section>
 
     <section class="parallax-section">
@@ -498,6 +525,8 @@
                 </div>
             </div>
         </div>
+        <!-- Telarañas decorativas en esta sección -->
+        <div class="web-decoration web-bottom-right" style="opacity: 0.15; width: 200px; height: 200px;"></div>
     </section>
 
     <section class="final-cta">
@@ -506,6 +535,8 @@
             <p class="reveal-on-scroll">Gracias por llenar mi vida de emoción, amor y telarañas de felicidad. ¡Eres el mejor novio del universo!</p>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button">Un pequeño regalo para ti</a>
         </div>
+        <!-- Telarañas decorativas en esta sección -->
+        <div class="web-decoration web-top-left" style="opacity: 0.1;"></div>
     </section>
 
     <footer>
@@ -516,6 +547,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Animación de Spiderman al cargar la página
+            const spideySlinger = document.getElementById('spideySlinger');
+            setTimeout(() => {
+                spideySlinger.style.top = '20px'; // Baja a su posición final
+                spideySlinger.classList.add('swing-active'); // Activa la animación de balanceo
+            }, 500); // Pequeño retraso para que se note la transición
+
+
+            // Función para verificar si un elemento está en el viewport (igual que antes)
             function isInViewport(element) {
                 const rect = element.getBoundingClientRect();
                 return (
@@ -527,20 +567,21 @@
                 );
             }
 
+            // Función para añadir 'is-visible' a los elementos al hacer scroll (igual que antes)
             function revealElements() {
                 const revealElements = document.querySelectorAll('.reveal-on-scroll');
                 revealElements.forEach(element => {
                     if (isInViewport(element)) {
                         element.classList.add('is-visible');
                     } else {
-                        // Opcional: para que la animación se resetee al salir del viewport
+                        // Puedes descomentar si quieres que la animación se reinicie al salir del viewport
                         // element.classList.remove('is-visible');
                     }
                 });
             }
 
-            revealElements();
-            window.addEventListener('scroll', revealElements);
+            revealElements(); // Comprobación inicial
+            window.addEventListener('scroll', revealElements); // Comprobación al hacer scroll
         });
     </script>
 </body>
