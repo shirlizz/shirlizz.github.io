@@ -2,11 +2,149 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Sobre mí</title>
+  <title>Día del Novio 🕷️❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente tipo cómic -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Bangers', cursive;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+      background: url('https://i.ibb.co/42F9zJp/spiderman-bg.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff0000;
+      text-shadow: 2px 2px 5px black;
+      animation: swing 2s infinite alternate;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #f2f2f2;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .btn {
+      margin-top: 30px;
+      background: #e60000;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255,0,0,0.7);
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff1a1a;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    .card {
+      background: #111;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.6);
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    .spider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 80px;
+      animation: descend 5s infinite;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes descend {
+      0% { transform: translateY(-200px); opacity: 0; }
+      50% { transform: translateY(200px); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    footer {
+      padding: 20px;
+      background: #0d0d0d;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1.2rem; }
+      .btn { font-size: 1rem; padding: 10px 20px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Sobre mí</h1>
-  <p>Aquí puedes contar quién eres, tu experiencia, etc.</p>
-  <p><a href="/">⬅ Volver al inicio</a></p>
+
+  <header>
+    <img class="spider" src="https://i.ibb.co/2Fz9M17/spider.png" alt="Spider">
+    <h1>Feliz Día del Novio 🕷️</h1>
+    <p>Eres mi héroe favorito, mi propio Spiderman ❤️</p>
+    <button class="btn" onclick="scrollToLove()">Ver mensaje</button>
+  </header>
+
+  <section id="love">
+    <div class="card">
+      <h2>Mi amor</h2>
+      <p>
+        En este universo y en todos los multiversos, siempre te elegiría a ti.  
+        Eres el Peter Parker que hace mi vida más increíble, con quien quiero compartir todas mis aventuras.  
+      </p>
+      <p>Te amo hasta el infinito 🕸️❤️</p>
+    </div>
+  </section>
+
+  <footer>
+    Creado con amor por Shirlizz 🕷️
+  </footer>
+
+  <script>
+    function scrollToLove() {
+      document.getElementById("love").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
